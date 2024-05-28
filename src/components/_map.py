@@ -14,8 +14,8 @@ map = dbc.Row([dcc.Graph(id="map-graph", figure=fig)], style={"height": "85vh"})
 def create_map_figure(df_data, df_intermediate):
     mean_lat_ = df_intermediate["Latitude"].median()
     mean_long_ = df_intermediate["Longitude"].median()
-
-    px.set_mapbox_access_token(os.getenv("DEFAULT_PUBLIC_TOKEN"))
+    
+    px.set_mapbox_access_token(os.environ.get("DEFAULT_PUBLIC_TOKEN"))
 
     map_fig = px.scatter_mapbox(
         df_intermediate,
