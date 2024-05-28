@@ -1,6 +1,6 @@
 from dash import Input, Output
 import dash_bootstrap_components as dbc
-
+from babel.numbers import format_currency
 from dotenv import load_dotenv
 
 # import from folders
@@ -85,7 +85,7 @@ def filter_data_and_predict(
         )
 
         prediction = predict(df_data, df_user_selected)
-        prediction = f"O valor estimado do aluguel é: {locale.currency(prediction, grouping=True)}"
+        prediction = f"O valor estimado do aluguel é: {format_currency(prediction, 'BRL', locale='pt_BR')}"
 
     map_fig = create_map_figure(df_data, df_intermediate)
 

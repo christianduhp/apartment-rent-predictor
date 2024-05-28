@@ -14,4 +14,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Comando a ser executado quando o contêiner for iniciado
-CMD python app.py
+CMD python index.py
